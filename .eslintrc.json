@@ -1,3 +1,42 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "unused-imports", "simple-import-sort"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-imports-ts": ["error"],
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-duplicate-imports": "off",
+    
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "_",
+        "varsIgnorePattern": "_"
+      }
+    ],
+
+    "import/newline-after-import": "warn",
+
+
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
 }
