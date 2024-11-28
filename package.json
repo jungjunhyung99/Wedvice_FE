@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "husky": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_4838cf564671b5e"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.61.0",
@@ -34,6 +35,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "chromatic": "^11.19.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
