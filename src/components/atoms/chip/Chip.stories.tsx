@@ -39,6 +39,7 @@ export const WeddingChip: Story = {
       </div>
     ),
     type: 'wedding',
+    size: 'md',
   },
   decorators: [
     (Story) => (
@@ -51,12 +52,14 @@ export const WeddingChip: Story = {
 
 export const AlarmChip: Story = {
   args: {
-    children: 'text',
-    type: 'alarm',
+    children: 'text~!',
+    type: 'notification',
+    size: 'lg',
+    rounded: 'notification',
   },
   decorators: [
     (Story) => (
-      <div className="w-[56px]">
+      <div className="max-w-[50%]">
         <Story />
       </div>
     ),
@@ -67,95 +70,61 @@ export const PrimaryChip: Story = {
   args: {
     children: 'text',
     type: 'primary300',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const PinkChip: Story = {
   args: {
     children: 'text',
     type: 'pink100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
+
 export const TealChip: Story = {
   args: {
     children: 'text',
     type: 'teal100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const BlueChip: Story = {
   args: {
     children: 'text',
     type: 'blue100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const YellowChip: Story = {
   args: {
     children: 'text',
     type: 'yellow100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const GrayChip: Story = {
   args: {
     children: 'text',
     type: 'gray100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const RedChip: Story = {
   args: {
     children: 'text',
     type: 'red100',
+    rounded: 'sm',
+    size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <div className="w-[46px]">
-        <Story />
-      </div>
-    ),
-  ],
 };
