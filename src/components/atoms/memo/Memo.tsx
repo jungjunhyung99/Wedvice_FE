@@ -2,11 +2,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef, type HTMLAttributes } from "react";
 
 const memoVariants = cva(
-  "inline-flex items-center py-2 px-3 rounded-md font-medium break-words border-[1px] border-white-20",
+  "inline-flex items-center py-2 px-3 rounded-md font-medium break-words border-[1px] border-white/20",
   {
     variants: {
       variant: {
-        main: "bg-white-20 text-white-100",
+        main: "bg-white/20 text-white",
         none: "text-gray-700",
       },
       size: {
