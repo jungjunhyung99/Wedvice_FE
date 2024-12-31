@@ -1,4 +1,4 @@
-import { colors, borderRadius } from './src/styles/theme';
+import { spacing, colors, borderRadius } from './src/styles/theme';
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -9,8 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      spacing,
       colors,
       borderRadius,
+      fontFamily: {
+        pretendard: ['var(--font-pretendard)'],
+      },
     },
   },
   plugins: [],

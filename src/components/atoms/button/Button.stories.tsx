@@ -12,7 +12,7 @@ const meta: Meta<typeof Button> = {
     },
     rounded: {
       control: 'inline-radio',
-      options: ['none', 'sm', 'md', 'lg', 'xl'],
+      options: ['md', 'lg'],
     },
     width: {
       control: 'inline-radio',
@@ -21,6 +21,10 @@ const meta: Meta<typeof Button> = {
     height: {
       control: 'inline-radio',
       options: ['xl2', 'xl', 'lg', 'md', 'sm'],
+    },
+    size: {
+      control: 'inline-radio',
+      options: ['lg', 'md', 'sm'],
     },
     disabled: {
       control: 'boolean',
@@ -32,12 +36,6 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 type Story = StoryObj<typeof Button>;
-
-export const BasicButton: Story = {
-  args: {
-    children: 'text',
-  },
-};
 
 export const PrimaryFillWithArrow: Story = {
   args: {
@@ -58,38 +56,10 @@ export const PrimaryFillWithArrow: Story = {
   ],
 };
 
-export const PrimaryOutline: Story = {
-  args: {
-    ...BasicButton.args,
-    variant: 'primary_outline',
-  },
-  decorators: [
-    (Story) => (
-      <div className="w-[100px]">
-        <Story />
-      </div>
-    ),
-  ],
-};
-
 export const GrayFill: Story = {
   args: {
-    ...BasicButton.args,
     variant: 'gray_fill',
-  },
-  decorators: [
-    (Story) => (
-      <div className="w-[100px]">
-        <Story />
-      </div>
-    ),
-  ],
-};
-
-export const GrayOutline: Story = {
-  args: {
-    ...BasicButton.args,
-    variant: 'gray_outline',
+    children: 'text',
   },
   decorators: [
     (Story) => (
