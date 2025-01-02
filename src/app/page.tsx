@@ -2,6 +2,8 @@ import { Button } from '@/components/atoms/button';
 import Image from 'next/image';
 import LeftArrow from '@/assets/left_arrow.svg';
 
+import Login from '@/features/Login';
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
@@ -18,6 +20,8 @@ export default function Home() {
           <span>text</span>
         </Button>
       </div>
+      <Button>simple button</Button>
+      <Login />
     </div>
   );
 }
