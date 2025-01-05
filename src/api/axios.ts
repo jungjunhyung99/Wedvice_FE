@@ -4,6 +4,7 @@ import axios, {
   CreateAxiosDefaults,
   isAxiosError,
 } from 'axios';
+import { HttpStatusCode } from '@/constants/apiStatus';
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com'; // 수정 필요
 
@@ -30,6 +31,14 @@ const setInterceptor = (instance: AxiosInstance) => {
         if (error.response && error.response.data) {
           const { status, code, message } = error.response.data;
           console.log(status, code, message);
+
+          if (status === HttpStatusCode.UNAUTHORIZED) {
+            // 다시 로그인
+          }
+
+          if (status === HttpStatusCode.INTERNAL_SERVER_ERROR) {
+            // 에러
+          }
 
           return Promise.reject(error);
         }
