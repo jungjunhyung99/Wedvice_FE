@@ -16,8 +16,8 @@ interface PostResponse {
 const test = {
   postAPI: async (request: PostRequest): Promise<PostResponse> => {
     try {
-      const res = await ax.post<PostResponse>('/posts', request);
-      return res.data;
+      const { data } = await ax.post<PostResponse>('/posts', request);
+      return data;
     } catch (error) {
       console.error('API Error:', error);
       throw error;
