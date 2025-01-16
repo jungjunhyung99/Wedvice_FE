@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Login = () => {
+const LoginButton = () => {
   const KAKAO_AUTH_URL = `${process.env.NEXT_PUBLIC_KAKAO_AUTH_URL}?client_id=${process.env.NEXT_PUBLIC_REST_API_KEY}&redirect_uri=${process.env.NEXT_PUBLIC_REDIRECT_URI}&response_type=code`;
 
   const loginHandler = () => {
@@ -18,4 +18,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginButton;

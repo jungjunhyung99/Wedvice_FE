@@ -2,7 +2,7 @@ import { Button } from '@/components/atoms/button';
 import Image from 'next/image';
 import LeftArrow from '@/assets/left_arrow.svg';
 
-import Login from '@/features/Login';
+import LoginButton from '@/features/components/LoginButton';
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         </Button>
       </div>
       <Button>simple button</Button>
-      <Login />
+      <LoginButton />
     </div>
   );
 }
