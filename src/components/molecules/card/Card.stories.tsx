@@ -21,7 +21,7 @@ export const Default: Story = {
     return (
       <Card checked={args.checked}>
         <Card.Checkbox checked={args.checked} />
-        <Card.TaskTitle>촬영 업체 선택</Card.TaskTitle>
+        <Card.TaskTitle>촬영 업체 선택 </Card.TaskTitle>
         <Card.CostSpan>400,000 원</Card.CostSpan>
         <Chip rounded="sm" size="sm">
           2024.11.19
@@ -75,7 +75,9 @@ export const NoCheckboxAndNoCost: Story = {
   render: (args) => {
     return (
       <Card checked={args.checked}>
-        <Card.TaskTitle>촬영 업체 선택</Card.TaskTitle>
+        <Card.TaskTitle>
+          촬영 업체 선택촬영 업체 선택촬영 업체 선택촬영 업체 선택촬영 업체 선택
+        </Card.TaskTitle>
         <Chip type="blue" rounded="sm" size="sm">
           예랑
         </Chip>

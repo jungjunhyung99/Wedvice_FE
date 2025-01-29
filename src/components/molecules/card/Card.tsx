@@ -82,19 +82,16 @@ function CardMain({ children, checked }: CardMainProps) {
 
   return (
     <div
-      className={`flex justify-between w-[350px] py-[16px] px-[20px] rounded-[16px] bg-gray-100 text-white ${checked ? 'opacity-40' : ''}`}
+      className={`flex flex-col justify-between w-[350px] py-[16px] px-[20px] rounded-[16px] bg-gray-100 text-white ${checked ? 'opacity-40' : ''}`}
     >
-      <div className="flex gap-[12px]">
+      <div className={'flex gap-[12px]'}>
         {checkbox}
-        <div
-          className={`flex flex-col ${chips.length === 2 ? 'h-[61px] justify-between' : ''}`}
-        >
-          {taskTitle}
-          {costSpan}
-        </div>
+        {taskTitle}
+        {!costSpan.length && !checkbox.length && <div className="h-[26px] gap-[8px]">{chips}</div>}
       </div>
-      <div className={'flex flex-col justify-end'}>
-        <div className="flex items-center h-[26px] gap-[8px]">{chips}</div>
+      <div className={`flex ${costSpan.length ? 'justify-between' : 'justify-end'}  ${checkbox.length ? 'pl-[36px]' : ''}`}>
+        {costSpan}
+        {(costSpan.length || chips.length === 2) && <div className="flex items-center h-[26px] gap-[8px]">{chips}</div>}
       </div>
     </div>
   );
