@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 
 const HomeLayout = ({ children }: PropsWithChildren) => {
-  return <main className="w-full h-full">{children}</main>;
+  return <main className='h-full w-full'>{children}</main>;
 };
 
 export default HomeLayout;

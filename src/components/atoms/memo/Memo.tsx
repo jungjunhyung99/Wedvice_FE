@@ -1,28 +1,30 @@
-"use client"
+'use client';
 
-import { forwardRef, useState } from "react";
-import MemoTextarea from "./MemoTextarea";
-import MemoDiv from "./MemoDiv";
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
+import { forwardRef, useState } from 'react';
+import MemoDiv from './MemoDiv';
+import MemoTextarea from './MemoTextarea';
 
 export const memoVariants = cva(
-  "inline-flex items-center box-border text-center py-2 px-3 rounded-md leading-tight font-medium break-words border-[1px] border-white/20 bg-white/20 focus:outline-none focus:ring-0",
+  'inline-flex items-center box-border text-center py-2 px-3 rounded-md leading-tight font-medium break-words border-[1px] border-white/20 bg-white/20 focus:outline-none focus:ring-0',
   {
     variants: {
       variant: {
-        main: "text-white",
-        none: "text-gray-700 placeholder-gray-700",
+        main: 'text-white',
+        none: 'text-gray-700 placeholder-gray-700',
       },
       size: {
-        small: 'text-[14px] max-w-[155px] max-h-[52px] min-w-[58px] min-h-[34px]',
-        medium: 'text-[16px] max-w-[173px] max-h-[58px] min-w-[63px] min-h-[37px]',
+        small:
+          'text-[14px] max-w-[155px] max-h-[52px] min-w-[58px] min-h-[34px]',
+        medium:
+          'text-[16px] max-w-[173px] max-h-[58px] min-w-[63px] min-h-[37px]',
       },
     },
     defaultVariants: {
-      variant: "main",
-      size: "small",
+      variant: 'main',
+      size: 'small',
     },
-  }
+  },
 );
 
 type SizeConfigItem = {
@@ -46,11 +48,11 @@ interface MemoProps {
 }
 
 export const Memo = forwardRef<HTMLDivElement, MemoProps>(
-  ({ isEditMode = false, text = "", size = "medium", ...props }, ref) => {
+  ({ isEditMode = false, text = '', size = 'medium', ...props }, ref) => {
     const [memoText, setMemoText] = useState(text);
 
     const commonClass = memoVariants({
-      variant: memoText.trim() ? "main" : "none",
+      variant: memoText.trim() ? 'main' : 'none',
       size,
     });
 
@@ -62,7 +64,7 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
         setMemoText={setMemoText}
         className={commonClass}
         {...props}
-        />
+      />
     ) : (
       <MemoDiv
         ref={ref as React.Ref<HTMLDivElement>}
@@ -72,8 +74,8 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
         {...props}
       />
     );
-  }
+  },
 );
 
-Memo.displayName = "Memo";
+Memo.displayName = 'Memo';
 export default Memo;

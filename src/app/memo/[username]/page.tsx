@@ -1,7 +1,7 @@
 import { Memo } from '@/features/memo';
 
 const MemoPage = () => {
-    return <Memo />;
+  return <Memo />;
 };
 
 export default MemoPage;
