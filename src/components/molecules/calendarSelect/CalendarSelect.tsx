@@ -1,6 +1,6 @@
 'use client';
 
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import Calendar from 'react-calendar';
 import { format } from 'date-fns';
 import LeftArrow from '@/assets/left_arrow.svg';
@@ -12,19 +12,17 @@ export type DatePiece = Date | null;
 export type SelectedDate = DatePiece | [DatePiece, DatePiece];
 
 export const CalendarSelect = () => {
-  const [selectedDate, setSelectedDate] = useState<SelectedDate>();
+  const [selectedDate, setSelectedDate] = useState<SelectedDate>(null);
   const [isFolded, setIsFolded] = useState<boolean>(false);
 
-  const handleSelectedDate = (
-    newDate: SetStateAction<SelectedDate | undefined>,
-  ) => {
+  const handleSelectedDate = (newDate: SelectedDate) => {
     if (!(newDate instanceof Date)) return;
 
     const isSameDate =
       selectedDate instanceof Date &&
       selectedDate.getTime() === newDate.getTime();
 
-    setSelectedDate(isSameDate ? undefined : newDate);
+    setSelectedDate(isSameDate ? null : newDate);
     setIsFolded((prev) => !prev);
   };
 
