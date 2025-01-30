@@ -5,5 +5,11 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "jsxSingleQuote": true,
+  "htmlWhitespaceSensitivity": "css",
+  "printWidth": 80,
+  "embeddedLanguageFormatting": "auto"
 }
