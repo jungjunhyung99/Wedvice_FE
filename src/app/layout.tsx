@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`layout ${pretendard.variable}`}>
         <BaseQueryClientProvider>
-          <div className="w-full h-[100dvh] bg-black font-pretendard">
+          <div className="w-full h-[100dvh] bg-gray-100 font-pretendard">
             {children}
           </div>
         </BaseQueryClientProvider>
