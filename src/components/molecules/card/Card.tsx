@@ -17,11 +17,11 @@ interface CheckBoxProps {
 }
 
 const TaskTitle = ({ children }: SubComponentProps) => {
-  return <span className="text-[18px]">{children}</span>;
+  return <span className="text-lg">{children}</span>;
 };
 
 const CostSpan = ({ children }: SubComponentProps) => {
-  return <span className="text-gray-700 text-[16px]">{children}</span>;
+  return <span className="text-gray-700 text-base">{children}</span>;
 };
 
 const Checkbox = ({ onChange, checked }: CheckBoxProps) => {
