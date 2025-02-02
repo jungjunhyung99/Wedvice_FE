@@ -80,6 +80,10 @@ function CardMain({ children, checked }: CardMainProps) {
   const chips = getChip(children);
   const checkbox = getCheckbox(children);
 
+  const hasCheckbox = checkbox.length;
+  const hasTwoCheckbox = checkbox.length === 2;
+  const hasCostSpan = costSpan.length;
+
   return (
     <div
       className={`flex flex-col justify-between w-[350px] py-[16px] px-[20px] rounded-[16px] bg-gray-100 text-white ${checked ? 'opacity-40' : ''}`}
@@ -87,11 +91,11 @@ function CardMain({ children, checked }: CardMainProps) {
       <div className={'flex gap-[12px]'}>
         {checkbox}
         {taskTitle}
-        {!costSpan.length && !checkbox.length && <div className="h-[26px] gap-[8px]">{chips}</div>}
+        {!hasCostSpan && !hasCheckbox && <div className="h-[26px] gap-[8px]">{chips}</div>}
       </div>
-      <div className={`flex ${costSpan.length ? 'justify-between' : 'justify-end'}  ${checkbox.length ? 'pl-[36px]' : ''}`}>
+      <div className={`flex ${hasCostSpan ? 'justify-between' : 'justify-end'}  ${hasCheckbox && 'pl-[36px]'}`}>
         {costSpan}
-        {(costSpan.length || chips.length === 2) && <div className="flex items-center h-[26px] gap-[8px]">{chips}</div>}
+        {(hasCostSpan || hasTwoCheckbox) && <div className="flex items-center h-[26px] gap-[8px]">{chips}</div>}
       </div>
     </div>
   );
