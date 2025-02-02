@@ -27,12 +27,12 @@ export const CalendarSelect = () => {
   };
 
   return (
-    <div className="rounded-lg bg-gray-100 p-5">
+    <div className='rounded-lg bg-gray-100 p-5'>
       <div
-        className="flex cursor-pointer justify-between text-base font-medium"
+        className='flex cursor-pointer justify-between text-base font-medium'
         onClick={() => setIsFolded(true)}
       >
-        <span className="text-gray-800">날짜</span>
+        <span className='text-gray-800'>날짜</span>
         <span className={`${selectedDate ? 'text-white' : 'text-gray-500'}`}>
           {selectedDate instanceof Date
             ? format(selectedDate, 'yyyy년 M월 d일')
@@ -42,22 +42,22 @@ export const CalendarSelect = () => {
 
       {isFolded && (
         <Calendar
-          className="react-calendar"
+          className='react-calendar'
           onChange={handleSelectedDate}
           value={selectedDate}
-          view="month"
-          calendarType="gregory"
+          view='month'
+          calendarType='gregory'
           prev2Label={null}
           next2Label={null}
           showNeighboringMonth={false}
           formatDay={(_, date) => format(date, 'd')}
           prevLabel={
-            <div className="mb-5 mr-1 flex h-6 w-6 items-center justify-center">
+            <div className='mb-5 mr-1 flex h-6 w-6 items-center justify-center'>
               <LeftArrow />
             </div>
           }
           nextLabel={
-            <div className="ml-1 flex h-6 w-6 items-center justify-center">
+            <div className='ml-1 flex h-6 w-6 items-center justify-center'>
               <RightArrow />
             </div>
           }
