@@ -9,9 +9,15 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-ally/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
   ],
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-imports-ts": [
       "error"
