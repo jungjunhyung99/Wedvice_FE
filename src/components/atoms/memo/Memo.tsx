@@ -1,7 +1,8 @@
 'use client';
 
+import useMemoContext from '@/contexts/memo/MemoContext';
 import { cva } from 'class-variance-authority';
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import MemoDiv from './MemoDiv';
 import MemoTextarea from './MemoTextarea';
 import SubmitButton from './SubmitButton';
@@ -50,7 +51,7 @@ interface MemoProps {
 
 export const Memo = forwardRef<HTMLDivElement, MemoProps>(
   ({ isEditMode = false, text = '', size = 'medium', ...props }, ref) => {
-    const [memoText, setMemoText] = useState(text);
+    const { memoText } = useMemoContext();
 
     const commonClass = memoVariants({
       variant: memoText.trim() ? 'main' : 'none',
@@ -63,11 +64,10 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
           ref={ref as React.Ref<HTMLTextAreaElement>}
           text={memoText}
           size={size}
-          setMemoText={setMemoText}
           className={commonClass}
           {...props}
         />
-        <SubmitButton text={memoText} setMemoText={setMemoText} />
+        <SubmitButton />
       </div>
     ) : (
       <MemoDiv

@@ -1,6 +1,6 @@
 'use client';
 
-import { MemoContnet } from '@/components/molecules/MemoContent';
+import { MemoContnet } from '@/components/molecules/memo/MemoContent';
 import { useSearchParams } from 'next/navigation';
 
 export const Memo = () => {

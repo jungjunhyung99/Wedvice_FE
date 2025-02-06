@@ -6,7 +6,7 @@ interface MemoContnetProps {
   imgUrl?: string;
 }
 
-export const MemoContnet = ({ imgUrl = '' }: MemoContnetProps) => {
+export const MemoContnet = ({ imgUrl = '' }: MemoContnetProps): JSX.Element => {
   return (
     <div className='flex flex-col items-center -space-y-1 pt-[80px]'>
       <Profile size='large' />

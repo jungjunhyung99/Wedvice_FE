@@ -1,11 +1,5 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  forwardRef,
-  SetStateAction,
-  useRef,
-  useState,
-} from 'react';
+import useMemoContext from '@/contexts/memo/MemoContext';
+import { ChangeEvent, forwardRef, useRef, useState } from 'react';
 import { MemoSize, SIZE_CONFIG } from './Memo';
 
 const TEXTAREA_PADDING = 24;
@@ -71,18 +65,18 @@ const TextLimitAlert = (): JSX.Element => {
 interface MemoTextareaProps {
   text: string;
   size: MemoSize;
-  setMemoText: Dispatch<SetStateAction<string>>;
   className?: string;
 }
 
 const MemoTextarea = forwardRef<HTMLTextAreaElement, MemoTextareaProps>(
-  ({ text, size, setMemoText, className, ...props }, ref) => {
+  ({ size, className, ...props }, ref) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [dimensions, setDimensions] = useState<Dimensions>({
       width: SIZE_CONFIG[size].minWidth,
       height: SIZE_CONFIG[size].minHeight,
     });
     const [isMaxText, setIsMaxText] = useState(false);
+    const { memoText, setMemoText } = useMemoContext();
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = e.target.value;
@@ -133,7 +127,7 @@ const MemoTextarea = forwardRef<HTMLTextAreaElement, MemoTextareaProps>(
       <>
         <textarea
           ref={ref || textareaRef}
-          value={text}
+          value={memoText}
           onChange={handleChange}
           placeholder='메모...'
           className={`${className} resize-none overflow-hidden`}
