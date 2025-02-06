@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 import { forwardRef, useState } from 'react';
 import MemoDiv from './MemoDiv';
 import MemoTextarea from './MemoTextarea';
+import SubmitButton from './SubmitButton';
 
 export const memoVariants = cva(
   'inline-flex items-center box-border text-center py-2 px-3 rounded-md leading-tight font-medium break-words border-[1px] border-white/20 bg-white/20 focus:outline-none focus:ring-0',
@@ -57,14 +58,17 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
     });
 
     return isEditMode ? (
-      <MemoTextarea
-        ref={ref as React.Ref<HTMLTextAreaElement>}
-        text={memoText}
-        size={size}
-        setMemoText={setMemoText}
-        className={commonClass}
-        {...props}
-      />
+      <div className='flex h-full w-full flex-col items-center'>
+        <MemoTextarea
+          ref={ref as React.Ref<HTMLTextAreaElement>}
+          text={memoText}
+          size={size}
+          setMemoText={setMemoText}
+          className={commonClass}
+          {...props}
+        />
+        <SubmitButton text={memoText} setMemoText={setMemoText} />
+      </div>
     ) : (
       <MemoDiv
         ref={ref as React.Ref<HTMLDivElement>}

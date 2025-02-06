@@ -8,7 +8,7 @@ interface MemoContnetProps {
 
 export const MemoContnet = ({ imgUrl = '' }: MemoContnetProps) => {
   return (
-    <div className='mt-[72px] flex flex-col items-center -space-y-1'>
+    <div className='flex flex-col items-center -space-y-1 pt-[80px]'>
       <Profile size='large' />
       <Memo size='medium' isEditMode />
     </div>
