@@ -14,12 +14,12 @@ const meta: Meta<typeof Chip> = {
           'wedding',
           'alarm',
           'primary300',
-          'pink100',
-          'teal100',
-          'blue100',
-          'yellow100',
-          'gray100',
-          'red100',
+          'pink',
+          'teal',
+          'blue',
+          'yellow',
+          'gray',
+          'red',
         ],
       },
     },
@@ -78,7 +78,7 @@ export const PrimaryChip: Story = {
 export const PinkChip: Story = {
   args: {
     children: 'text',
-    type: 'pink100',
+    type: 'pink',
     rounded: 'sm',
     size: 'sm',
   },
@@ -87,7 +87,7 @@ export const PinkChip: Story = {
 export const TealChip: Story = {
   args: {
     children: 'text',
-    type: 'teal100',
+    type: 'teal',
     rounded: 'sm',
     size: 'sm',
   },
@@ -96,7 +96,7 @@ export const TealChip: Story = {
 export const BlueChip: Story = {
   args: {
     children: 'text',
-    type: 'blue100',
+    type: 'blue',
     rounded: 'sm',
     size: 'sm',
   },
@@ -105,7 +105,7 @@ export const BlueChip: Story = {
 export const YellowChip: Story = {
   args: {
     children: 'text',
-    type: 'yellow100',
+    type: 'yellow',
     rounded: 'sm',
     size: 'sm',
   },
@@ -114,7 +114,7 @@ export const YellowChip: Story = {
 export const GrayChip: Story = {
   args: {
     children: 'text',
-    type: 'gray100',
+    type: 'gray',
     rounded: 'sm',
     size: 'sm',
   },
@@ -123,7 +123,7 @@ export const GrayChip: Story = {
 export const RedChip: Story = {
   args: {
     children: 'text',
-    type: 'red100',
+    type: 'red',
     rounded: 'sm',
     size: 'sm',
   },
