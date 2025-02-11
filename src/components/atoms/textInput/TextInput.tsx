@@ -29,7 +29,7 @@ export const TextInput = forwardRef<HTMLDivElement, TextInputProps>(
     const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
 
-      if (isValidText(value) && value.length <= maxLength) {
+      if (value === '' || (isValidText(value) && value.length <= maxLength)) {
         onChange(value);
       }
     };
