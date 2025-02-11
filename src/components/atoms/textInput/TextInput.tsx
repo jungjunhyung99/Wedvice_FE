@@ -1,4 +1,4 @@
-import { isValidText } from '@/util/validation';
+import { isValidText } from '@/utils/validation';
 import { cva } from 'class-variance-authority';
 import { ChangeEvent, forwardRef } from 'react';
 
