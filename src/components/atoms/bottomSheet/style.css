@@ -8,6 +8,11 @@
   --rsbs-ml: env(safe-area-inset-left);
   --rsbs-mr: env(safe-area-inset-right);
   --rsbs-overlay-rounded: 16px;
+
+  /* 스크롤바 없음 */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 [data-rsbs-overlay] {
