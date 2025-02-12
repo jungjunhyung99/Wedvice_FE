@@ -1,6 +1,6 @@
 'use client';
 
-import { MemoContnet } from '@/components/molecules/MemoContent';
+import { MemoContent } from '@/components/molecules/memo/MemoContent';
 import { useSearchParams } from 'next/navigation';
 
 export const Memo = () => {
@@ -19,7 +19,7 @@ export const Memo = () => {
       <p className='mt-4 text-sm font-medium text-gray-700'>
         메모는 24시간 동안 유지되어요.
       </p>
-      <MemoContnet />
+      <MemoContent />
     </div>
   );
 };

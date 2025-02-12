@@ -1,9 +1,12 @@
 'use client';
 
+import useMemoContext from '@/contexts/memo/MemoContext';
+import { MemoSize } from '@/types/memo/memoTypes';
 import { cva } from 'class-variance-authority';
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import MemoDiv from './MemoDiv';
 import MemoTextarea from './MemoTextarea';
+import SubmitButton from './SubmitButton';
 
 export const memoVariants = cva(
   'inline-flex items-center box-border text-center py-2 px-3 rounded-md leading-tight font-medium break-words border-[1px] border-white/20 bg-white/20 focus:outline-none focus:ring-0',
@@ -27,20 +30,6 @@ export const memoVariants = cva(
   },
 );
 
-type SizeConfigItem = {
-  minWidth: number;
-  maxWidth: number;
-  minHeight: number;
-  maxHeight: number;
-};
-
-export type MemoSize = 'small' | 'medium';
-
-export const SIZE_CONFIG: Record<MemoSize, SizeConfigItem> = {
-  small: { minWidth: 58, maxWidth: 155, minHeight: 34, maxHeight: 52 },
-  medium: { minWidth: 63, maxWidth: 173, minHeight: 37, maxHeight: 58 },
-};
-
 interface MemoProps {
   isEditMode?: boolean;
   text?: string;
@@ -49,7 +38,7 @@ interface MemoProps {
 
 export const Memo = forwardRef<HTMLDivElement, MemoProps>(
   ({ isEditMode = false, text = '', size = 'medium', ...props }, ref) => {
-    const [memoText, setMemoText] = useState(text);
+    const { memoText } = useMemoContext();
 
     const commonClass = memoVariants({
       variant: memoText.trim() ? 'main' : 'none',
@@ -57,14 +46,16 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
     });
 
     return isEditMode ? (
-      <MemoTextarea
-        ref={ref as React.Ref<HTMLTextAreaElement>}
-        text={memoText}
-        size={size}
-        setMemoText={setMemoText}
-        className={commonClass}
-        {...props}
-      />
+      <div className='flex h-full w-full flex-col items-center'>
+        <MemoTextarea
+          ref={ref as React.Ref<HTMLTextAreaElement>}
+          text={memoText}
+          size={size}
+          className={commonClass}
+          {...props}
+        />
+        <SubmitButton />
+      </div>
     ) : (
       <MemoDiv
         ref={ref as React.Ref<HTMLDivElement>}
