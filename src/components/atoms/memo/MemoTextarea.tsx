@@ -1,5 +1,11 @@
 import useMemoContext from '@/contexts/memo/MemoContext';
-import { ChangeEvent, forwardRef, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  forwardRef,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { MemoSize, SIZE_CONFIG } from './Memo';
 
 const TEXTAREA_PADDING = 24;
@@ -53,6 +59,44 @@ type Dimensions = {
   height: number;
 };
 
+type UpdateDimensions = {
+  width: number;
+  height: number;
+  textHeight: number;
+  maxTextHeight: number;
+};
+
+const updateDimensions = (
+  context: HTMLTextAreaElement,
+  text: string,
+  size: MemoSize,
+): UpdateDimensions => {
+  const { minWidth, maxWidth } = SIZE_CONFIG[size];
+
+  const tempSpan = createTempSpan(context, text);
+  const calculatedWidth = Math.min(
+    tempSpan.offsetWidth + TEXTAREA_PADDING,
+    maxWidth,
+  );
+  document.body.removeChild(tempSpan);
+
+  const textHeight = context.scrollHeight || 0;
+  const maxTextHeight = MAX_TEXT_HEIGHT[size];
+  const newHeight = calculateNewHeight(
+    calculatedWidth,
+    textHeight,
+    maxTextHeight,
+    size,
+  );
+
+  return {
+    width: Math.max(calculatedWidth, minWidth),
+    height: newHeight,
+    textHeight,
+    maxTextHeight,
+  };
+};
+
 // 글자수 초과 시 렌더되는 alert 컴포넌트
 const TextLimitAlert = (): JSX.Element => {
   return (
@@ -71,42 +115,41 @@ interface MemoTextareaProps {
 const MemoTextarea = forwardRef<HTMLTextAreaElement, MemoTextareaProps>(
   ({ size, className, ...props }, ref) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const [dimensions, setDimensions] = useState<Dimensions>({
-      width: SIZE_CONFIG[size].minWidth,
-      height: SIZE_CONFIG[size].minHeight,
-    });
-    const [isMaxText, setIsMaxText] = useState(false);
+
     const { memoText, setMemoText } = useMemoContext();
+    const [isMaxText, setIsMaxText] = useState(false);
+
+    const { minWidth, minHeight, maxWidth } = SIZE_CONFIG[size];
+    const [dimensions, setDimensions] = useState<Dimensions>({
+      width: minWidth,
+      height: minHeight,
+    });
+
+    useLayoutEffect(() => {
+      if (!textareaRef.current) {
+        return;
+      }
+
+      const context = textareaRef.current;
+      const { width, height } = updateDimensions(context, memoText, size);
+      setDimensions({ width, height });
+    }, []);
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      const newValue = e.target.value;
+      const newValue = e.target.value || memoText;
+      const context = textareaRef.current;
 
-      if (!textareaRef.current) {
+      if (!context) {
         setMemoText(newValue);
         return;
       }
 
-      const { minWidth, maxWidth } = SIZE_CONFIG[size];
-      const context = textareaRef.current;
-
-      // 임시 span 생성 및 너비 계산
-      const tempSpan = createTempSpan(context, newValue);
-      const calculatedWidth = Math.min(
-        tempSpan.offsetWidth + TEXTAREA_PADDING,
-        maxWidth,
-      );
-      document.body.removeChild(tempSpan);
-
-      // 너비와 높이 계산
-      const newWidth = Math.max(calculatedWidth, minWidth);
-      const textHeight = context.scrollHeight || 0;
-      const maxTextHeight = MAX_TEXT_HEIGHT[size];
-      const newHeight = calculateNewHeight(
-        calculatedWidth,
+      const {
+        width: newWidth,
+        height: newHeight,
         textHeight,
         maxTextHeight,
-        size,
-      );
+      } = updateDimensions(context, newValue, size);
 
       // 너비와 높이 상태 업데이트
       setDimensions({ width: newWidth, height: newHeight });
