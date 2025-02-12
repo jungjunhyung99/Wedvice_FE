@@ -1,4 +1,6 @@
 import useMemoContext from '@/contexts/memo/MemoContext';
+import { Dimensions, MemoSize, SIZE_CONFIG } from '@/types/memo/memoTypes';
+import { updateDimensions } from '@/utils/memo/memoUtils';
 import {
   ChangeEvent,
   forwardRef,
@@ -6,96 +8,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { MemoSize, SIZE_CONFIG } from './Memo';
-
-const TEXTAREA_PADDING = 24;
-
-// 메모 크기별 최대 텍스트 높이 설정
-const MAX_TEXT_HEIGHT: Record<MemoSize, number> = {
-  small: 51,
-  medium: 56,
-};
-const HEIGHT_PADDING: Record<MemoSize, number> = {
-  small: 2,
-  medium: 1,
-};
-
-// 텍스트의 크기를 계산하기 위한 임시 span 요소 생성 함수
-const createTempSpan = (
-  context: HTMLTextAreaElement,
-  newValue: string,
-): HTMLSpanElement => {
-  const tempSpan = document.createElement('span');
-  tempSpan.style.visibility = 'hidden';
-  tempSpan.style.position = 'absolute';
-  tempSpan.style.whiteSpace = 'pre';
-  tempSpan.style.font = window.getComputedStyle(context).font;
-  tempSpan.textContent = newValue || ' ';
-  document.body.appendChild(tempSpan);
-  return tempSpan;
-};
-
-const calculateNewHeight = (
-  calculatedWidth: number,
-  textHeight: number,
-  maxTextHeight: number,
-  size: MemoSize,
-): number => {
-  const { maxWidth, minHeight, maxHeight } = SIZE_CONFIG[size];
-
-  // 최대 너비를 초과하면 최대 높이 반환
-  if (calculatedWidth >= maxWidth) {
-    return maxHeight;
-  }
-  // 최대 높이를 초과하면 최대 높이를 제한
-  if (textHeight >= maxTextHeight) {
-    return Math.min(textHeight + HEIGHT_PADDING[size], maxHeight);
-  }
-  return minHeight;
-};
-
-type Dimensions = {
-  width: number;
-  height: number;
-};
-
-type UpdateDimensions = {
-  width: number;
-  height: number;
-  textHeight: number;
-  maxTextHeight: number;
-};
-
-const updateDimensions = (
-  context: HTMLTextAreaElement,
-  text: string,
-  size: MemoSize,
-): UpdateDimensions => {
-  const { minWidth, maxWidth } = SIZE_CONFIG[size];
-
-  const tempSpan = createTempSpan(context, text);
-  const calculatedWidth = Math.min(
-    tempSpan.offsetWidth + TEXTAREA_PADDING,
-    maxWidth,
-  );
-  document.body.removeChild(tempSpan);
-
-  const textHeight = context.scrollHeight || 0;
-  const maxTextHeight = MAX_TEXT_HEIGHT[size];
-  const newHeight = calculateNewHeight(
-    calculatedWidth,
-    textHeight,
-    maxTextHeight,
-    size,
-  );
-
-  return {
-    width: Math.max(calculatedWidth, minWidth),
-    height: newHeight,
-    textHeight,
-    maxTextHeight,
-  };
-};
 
 // 글자수 초과 시 렌더되는 alert 컴포넌트
 const TextLimitAlert = (): JSX.Element => {

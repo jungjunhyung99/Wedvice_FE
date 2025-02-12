@@ -1,6 +1,7 @@
 'use client';
 
 import useMemoContext from '@/contexts/memo/MemoContext';
+import { MemoSize } from '@/types/memo/memoTypes';
 import { cva } from 'class-variance-authority';
 import { forwardRef } from 'react';
 import MemoDiv from './MemoDiv';
@@ -28,20 +29,6 @@ export const memoVariants = cva(
     },
   },
 );
-
-type SizeConfigItem = {
-  minWidth: number;
-  maxWidth: number;
-  minHeight: number;
-  maxHeight: number;
-};
-
-export type MemoSize = 'small' | 'medium';
-
-export const SIZE_CONFIG: Record<MemoSize, SizeConfigItem> = {
-  small: { minWidth: 58, maxWidth: 155, minHeight: 34, maxHeight: 52 },
-  medium: { minWidth: 63, maxWidth: 173, minHeight: 37, maxHeight: 58 },
-};
 
 interface MemoProps {
   isEditMode?: boolean;

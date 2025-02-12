@@ -1,5 +1,5 @@
+import { MemoSize } from '@/types/memo/memoTypes';
 import { forwardRef } from 'react';
-import { MemoSize } from './Memo';
 
 interface MemoDivProps {
   text: string;
