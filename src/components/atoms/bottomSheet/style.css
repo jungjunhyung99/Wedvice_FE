@@ -1,0 +1,20 @@
+:root {
+  --rsbs-max-w: var(--layout-max-w);
+  --rsbs-content-opacity: 1;
+  --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
+  --rsbs-bg: #1F2028;
+  --rsbs-handle-bg: #8C8EA6;
+  --rsbs-max-w: auto;
+  --rsbs-ml: env(safe-area-inset-left);
+  --rsbs-mr: env(safe-area-inset-right);
+  --rsbs-overlay-rounded: 16px;
+
+  /* 스크롤바 없음 */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+[data-rsbs-overlay] {
+  z-index: 99;
+}
