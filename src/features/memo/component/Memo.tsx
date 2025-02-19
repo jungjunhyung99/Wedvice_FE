@@ -1,10 +1,10 @@
 'use client';
 
+import MemoDiv from '@/components/atoms/memo/MemoDiv';
 import useMemoContext from '@/contexts/memo/MemoContext';
 import { MemoSize } from '@/types/memo/memoTypes';
 import { cva } from 'class-variance-authority';
 import { forwardRef, Ref } from 'react';
-import MemoDiv from './MemoDiv';
 import MemoTextarea from './MemoTextarea';
 
 export const memoVariants = cva(

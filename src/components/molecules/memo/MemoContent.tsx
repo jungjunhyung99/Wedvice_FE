@@ -1,6 +1,6 @@
-import { Memo } from '@/components/atoms/memo/Memo';
-import SubmitButton from '@/components/atoms/memo/SubmitButton';
 import { Profile } from '@/components/atoms/profile/Profile';
+import { Memo } from '@/features/memo/component/Memo';
+import SubmitButton from '@/features/memo/component/SubmitButton';
 
 interface MemoContentProps {
   // 서버로 부터 받아올 이미지
