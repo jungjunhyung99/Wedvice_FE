@@ -50,8 +50,11 @@ next-env.d.ts
 # ignore too large file in .yarn/cache
 .yarn/cache/next-npm-*
 .yarn/cache/@next-swc-win32-x64-msvc-*
-*storybook.log
+.yarn/cache/
 
-# # Service Worker 파일 무시
+# Service Worker 파일 무시
 public/sw.js
 public/workbox-*
+
+# story
+*storybook.log
