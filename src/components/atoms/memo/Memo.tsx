@@ -3,10 +3,9 @@
 import useMemoContext from '@/contexts/memo/MemoContext';
 import { MemoSize } from '@/types/memo/memoTypes';
 import { cva } from 'class-variance-authority';
-import { forwardRef } from 'react';
+import { forwardRef, Ref } from 'react';
 import MemoDiv from './MemoDiv';
 import MemoTextarea from './MemoTextarea';
-import SubmitButton from './SubmitButton';
 
 export const memoVariants = cva(
   'inline-flex items-center box-border text-center py-2 px-3 rounded-md leading-tight font-medium break-words border-[1px] border-white/20 bg-white/20 focus:outline-none focus:ring-0',
@@ -32,12 +31,11 @@ export const memoVariants = cva(
 
 interface MemoProps {
   isEditMode?: boolean;
-  text?: string;
   size?: MemoSize;
 }
 
 export const Memo = forwardRef<HTMLDivElement, MemoProps>(
-  ({ isEditMode = false, text = '', size = 'medium', ...props }, ref) => {
+  ({ isEditMode = false, size = 'medium', ...props }, ref) => {
     const { memoText } = useMemoContext();
 
     const commonClass = memoVariants({
@@ -46,19 +44,15 @@ export const Memo = forwardRef<HTMLDivElement, MemoProps>(
     });
 
     return isEditMode ? (
-      <div className='flex h-full w-full flex-col items-center'>
-        <MemoTextarea
-          ref={ref as React.Ref<HTMLTextAreaElement>}
-          text={memoText}
-          size={size}
-          className={commonClass}
-          {...props}
-        />
-        <SubmitButton />
-      </div>
+      <MemoTextarea
+        ref={ref as Ref<HTMLTextAreaElement>}
+        size={size}
+        className={commonClass}
+        {...props}
+      />
     ) : (
       <MemoDiv
-        ref={ref as React.Ref<HTMLDivElement>}
+        ref={ref as Ref<HTMLDivElement>}
         text={memoText}
         size={size}
         className={commonClass}
