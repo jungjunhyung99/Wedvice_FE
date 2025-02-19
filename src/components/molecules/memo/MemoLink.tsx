@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Memo } from '@/components/atoms/memo/Memo';
 import { Profile } from '@/components/atoms/profile/Profile';
+import { Memo } from '@/features/memo/component/Memo';
 
 export const MemoLink = () => {
   const username = 'test'; // dummy data

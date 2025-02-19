@@ -19,7 +19,6 @@ const TextLimitAlert = (): JSX.Element => {
 };
 
 interface MemoTextareaProps {
-  text: string;
   size: MemoSize;
   className?: string;
 }
@@ -48,7 +47,7 @@ const MemoTextarea = forwardRef<HTMLTextAreaElement, MemoTextareaProps>(
     }, []);
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      const newValue = e.target.value || memoText;
+      const newValue = e.target.value || '';
       const context = textareaRef.current;
 
       if (!context) {
