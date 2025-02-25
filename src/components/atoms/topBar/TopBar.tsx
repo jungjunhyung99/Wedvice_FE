@@ -1,15 +1,6 @@
 import LeftArrow from '@/assets/left_arrow_28.svg';
 import { forwardRef, ReactNode } from 'react';
 
-// TobBar의 뒤로가기 버튼
-const BackButton = (): JSX.Element => {
-  return (
-    <div className='absolute flex h-9 w-9 items-center justify-center'>
-      <LeftArrow />
-    </div>
-  );
-};
-
 interface TopBarProps {
   text?: string;
   className?: string;
@@ -25,13 +16,15 @@ const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
         className={`${className} relative flex h-[53px] items-center px-5 text-center`}
         {...props}
       >
-        <BackButton />
+        <div className='flex h-9 w-9 items-center justify-center'>
+          <LeftArrow />
+        </div>
         {text && (
-          <span className='mx-auto text-lg font-semibold text-gray-800'>
+          <span className='absolute left-1/2 top-1/2 mx-auto -translate-x-1/2 -translate-y-1/2 text-lg font-semibold text-gray-800'>
             {text}
           </span>
         )}
-        <div className='flex items-center space-x-4'>
+        <div className='ml-auto flex items-center space-x-4'>
           {primaryButton}
           {secondaryButton}
         </div>
