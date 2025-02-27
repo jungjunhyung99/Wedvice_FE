@@ -1,1 +1,1 @@
-export { CommentBox } from '@/components/molecules/comment/CommentBox';
+export { CommentInput } from '@/components/molecules/comment/CommentInput';

@@ -1,6 +1,6 @@
 import Upload from '@/assets/upload.svg';
 import UploadActive from '@/assets/upload_active.svg';
-import { CommentInput } from './CommentInput';
+import { CommentInput } from '@/components/molecules/comment';
 import { ImageUploader } from './ImageUploader';
 
 interface CommentBoxProps {
