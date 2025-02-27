@@ -1,11 +1,13 @@
 'use client';
 
 import LeftArrow from '@/assets/left_arrow_28.svg';
+import { getFormattedTime } from '@/utils/time';
 import { useRouter } from 'next/navigation';
 import { forwardRef, ReactNode } from 'react';
 
 interface TopBarProps {
   title?: string;
+  time?: string;
   className?: string;
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
@@ -17,6 +19,7 @@ const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
   (
     {
       title,
+      time,
       primaryButton,
       secondaryButton,
       onPrimaryButtonClick,
@@ -45,12 +48,17 @@ const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
         >
           <LeftArrow />
         </div>
-        {/* 타이틀 */}
-        {title && (
-          <span className='absolute left-1/2 top-1/2 mx-auto -translate-x-1/2 -translate-y-1/2 select-none text-lg font-semibold text-gray-800'>
-            {title}
-          </span>
-        )}
+        {/* 타이틀 + 시간 */}
+        <div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 select-none items-center'>
+          {title && (
+            <span className='text-lg font-semibold text-gray-800'>{title}</span>
+          )}
+          {time && (
+            <span className='ml-2 text-xs font-medium text-gray-700'>
+              {getFormattedTime(time)}
+            </span>
+          )}
+        </div>
         {/* 우측 버튼 그룹 */}
         {primaryButton && (
           <div className='ml-auto flex items-center space-x-4'>
