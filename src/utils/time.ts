@@ -13,3 +13,16 @@ export const getFormattedTime = (time: string) => {
 
   return `${year}.${month}.${date}`;
 };
+
+/**
+ * time 문자열을 Date 객체로 생성한 뒤 yyyy년 MM월 형식으로 변환
+ * 2025년 02월
+ */
+export const getFormattedYearMonth = (time: string) => {
+  const timeDate = new Date(time);
+
+  const year = timeDate.getFullYear();
+  const month = `0${timeDate.getMonth() + 1}`.slice(-2);
+
+  return `${year}년 ${month}월`;
+};
