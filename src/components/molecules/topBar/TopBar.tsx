@@ -15,7 +15,7 @@ interface TopBarProps {
   onSecondaryButtonClick?: () => void;
 }
 
-const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
+export const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
   (
     {
       title,
@@ -78,4 +78,3 @@ const TopBar = forwardRef<HTMLDivElement, TopBarProps>(
 );
 
 TopBar.displayName = 'TopBar';
-export default TopBar;
