@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, CSSProperties, ChangeEvent } from 'react';
+import React, { useEffect, useRef, ChangeEvent } from 'react';
 import { BottomSheet } from '@/components/atoms/bottomSheet';
 import Close from '@/assets/close_20.svg';
 
@@ -112,12 +112,13 @@ const BottomSheetHeader = ({
   setImages,
   setShowGallery,
 }: {
-  images: string[] | null;
+  images: string[];
   setImages: (images: string[]) => void;
   setShowGallery: (value: boolean) => void;
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const openNativeGallery = () => {
-    document.getElementById('fileInput')?.click();
+    inputRef.current?.click();
   };
 
   const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
@@ -133,10 +134,10 @@ const BottomSheetHeader = ({
   return (
     <div className='flex items-center justify-between px-1 text-lg font-medium'>
       <input
+        ref={inputRef}
         type='file'
         accept='image/*'
         multiple
-        id='fileInput'
         className='hidden'
         onChange={handleImageUpload}
       />
