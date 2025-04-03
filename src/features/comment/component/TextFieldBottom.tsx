@@ -1,8 +1,8 @@
+import Close from '@/assets/wed_icon/icon_20/close_default.svg';
+import Plus from '@/assets/wed_icon/icon_20/plus_default_gray.svg';
+import UploadActive from '@/assets/wed_icon/icon_20/upload_active.svg';
+import Upload from '@/assets/wed_icon/icon_20/upload_default.svg';
 import { CommentInput } from '@/components/molecules/comment';
-import Close from '@/assets/close_20.svg';
-import Plus from '@/assets/plus_20.svg';
-import Upload from '@/assets/upload.svg';
-import UploadActive from '@/assets/upload_active.svg';
 
 interface TextFieldBottomProps {
   text: string;

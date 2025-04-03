@@ -1,10 +1,9 @@
 'use client';
 
-import DownArrow from '@/assets/down_arrow.svg';
-import TopArrow from '@/assets/top_arrow.svg';
-import { StaticImageData } from 'next/image';
+import DownArrow from '@/assets/wed_icon/icon_16/downarrow_default_gray 800.svg';
+import TopArrow from '@/assets/wed_icon/icon_16/uparrow_default_gray 800.svg';
+import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
-import Image from 'next/image';
 
 interface FoldableImageProps {
   spanText: string;
