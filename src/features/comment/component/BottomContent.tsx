@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, ChangeEvent } from 'react';
+import Close from '@/assets/wed_icon/icon_20/close_default.svg';
 import { BottomSheet } from '@/components/atoms/bottomSheet';
-import Close from '@/assets/close_20.svg';
+import { ChangeEvent, useEffect, useRef } from 'react';
 
 const DEFAULT_BOTTOM_SHEET_HEIGHT = 290;
 const MAX_IMAGE = 9;

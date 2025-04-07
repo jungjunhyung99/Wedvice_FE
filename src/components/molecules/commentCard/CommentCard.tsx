@@ -1,9 +1,9 @@
 'use client';
 
-import ThreeDot from '@/assets/three_dots.svg';
-import { detailDate } from '@/utils/time';
+import ThreeDot from '@/assets/wed_icon/icon_20/editdot_default.svg';
 import { CommentDropdown } from '@/features/comment/components';
 import { useDropdown } from '@/hooks/useDropdown';
+import { detailDate } from '@/utils/time';
 
 interface CommentCardProps {
   name: string;

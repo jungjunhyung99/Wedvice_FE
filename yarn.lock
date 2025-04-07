@@ -1610,17 +1610,17 @@ __metadata:
   linkType: hard
 
 "@bundled-es-modules/memfs@npm:^4.9.4":
-  version: 4.9.4
-  resolution: "@bundled-es-modules/memfs@npm:4.9.4"
+  version: 4.17.0
+  resolution: "@bundled-es-modules/memfs@npm:4.17.0"
   dependencies:
-    assert: "npm:^2.0.0"
+    assert: "npm:^2.1.0"
     buffer: "npm:^6.0.3"
     events: "npm:^3.3.0"
-    memfs: "npm:^4.9.3"
+    memfs: "npm:^4.17.0"
     path: "npm:^0.12.7"
     stream: "npm:^0.0.3"
     util: "npm:^0.12.5"
-  checksum: 10c0/e3548c14379183fb74aa9a94407c1cdb8587320216fb557c0af7277d2dccf23f10a2edf8726e99f878758730c0c8d71524f77e19b26660a067b01d9afa07c891
+  checksum: 10c0/88b573e52afe2f14b0c06f1f4337883ccf3155b7c3f667af8ead248b84ba2743e4eee90eb283ec967a8486576509bb6d42ce1c43714253f70ee23c5e5e24bc73
   languageName: node
   linkType: hard
 
@@ -2112,14 +2112,14 @@ __metadata:
   linkType: hard
 
 "@figspec/react@npm:^1.0.0":
-  version: 1.0.3
-  resolution: "@figspec/react@npm:1.0.3"
+  version: 1.0.4
+  resolution: "@figspec/react@npm:1.0.4"
   dependencies:
     "@figspec/components": "npm:^1.0.1"
     "@lit-labs/react": "npm:^1.0.2"
   peerDependencies:
-    react: ^16.14.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/d5bbb79e106f522f5b867d0f55de01391edd1011e3f5d5a966ac07a5fca75f499d1d4d40a6186cf0afdc4fc4b49d808eb5d4fcbaf1784401a1ace2865dbc19be
+    react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/a91bec560d8262b2c886bd5664f4456083bb79327910d414fc459885302e8cf1d8e6c40d36132fe404dc5154ab761fdcfe237211f318185bb56056d14e7a9ff7
   languageName: node
   linkType: hard
 
@@ -2412,8 +2412,8 @@ __metadata:
   linkType: hard
 
 "@jsonjoy.com/json-pack@npm:^1.0.3":
-  version: 1.1.1
-  resolution: "@jsonjoy.com/json-pack@npm:1.1.1"
+  version: 1.2.0
+  resolution: "@jsonjoy.com/json-pack@npm:1.2.0"
   dependencies:
     "@jsonjoy.com/base64": "npm:^1.1.1"
     "@jsonjoy.com/util": "npm:^1.1.2"
@@ -2421,7 +2421,7 @@ __metadata:
     thingies: "npm:^1.20.0"
   peerDependencies:
     tslib: 2
-  checksum: 10c0/fd0d8baa0c8eba536924540717901e0d7eed742576991033cceeb32dcce801ee0a4318cf6eb40b444c9e78f69ddbd4f38b9eb0041e9e54c17e7b6d1219b12e1d
+  checksum: 10c0/0744cfe2f54d896003ad240f0f069b41a152feb53b6134c5e65961126b9e5fdfc74a46f63b1dfa280e80a3d176c57e06de072bf03d749ec1982e41677a1ce5d5
   languageName: node
   linkType: hard
 
@@ -2866,16 +2866,16 @@ __metadata:
   linkType: hard
 
 "@storybook/addon-designs@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "@storybook/addon-designs@npm:8.2.0"
+  version: 8.2.1
+  resolution: "@storybook/addon-designs@npm:8.2.1"
   dependencies:
     "@figspec/react": "npm:^1.0.0"
   peerDependencies:
     "@storybook/blocks": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
     "@storybook/components": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
     "@storybook/theming": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
   peerDependenciesMeta:
     "@storybook/blocks":
       optional: true
@@ -2887,7 +2887,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/6a6ff46696daaea42a870cf18cb028f94d57048b88f8089addcfef7aca503146970ffdaaad1647e02b8cb6e4f9c030f06a4c373c634fac66291c9eaa25a5b507
+  checksum: 10c0/65d63fc7fd771e1af510f6f47f576aff6e48d38f235a817d311e509b374ab50e5c46603b3aa8fa657bf8db91685758595ede08341920be4c2558dc341e755102
   languageName: node
   linkType: hard
 
@@ -3622,8 +3622,8 @@ __metadata:
   linkType: hard
 
 "@tokens-studio/sd-transforms@npm:^1.2.9":
-  version: 1.2.9
-  resolution: "@tokens-studio/sd-transforms@npm:1.2.9"
+  version: 1.2.12
+  resolution: "@tokens-studio/sd-transforms@npm:1.2.12"
   dependencies:
     "@bundled-es-modules/deepmerge": "npm:^4.3.1"
     "@bundled-es-modules/postcss-calc-ast-parser": "npm:^0.1.6"
@@ -3632,8 +3632,8 @@ __metadata:
     expr-eval-fork: "npm:^2.0.2"
     is-mergeable-object: "npm:^1.1.1"
   peerDependencies:
-    style-dictionary: ^4.1.4
-  checksum: 10c0/9673ed218c52387072cfcade703000523f316919581cd1267038248848a8960d336c7b95fd6a247a9ff436c3055a8970357be9acba496df57ac66be0588faf7b
+    style-dictionary: ^4.3.0 || ^5.0.0-rc.0
+  checksum: 10c0/971a09c7d17e3aca621bc2982be5dddd90294ce82a0780ffc48eec0752126ee02bbcbdd0b92eca948499a40d16a9261beb072356ad72e5f606661ba942d0c57b
   languageName: node
   linkType: hard
 
@@ -4326,9 +4326,9 @@ __metadata:
   linkType: hard
 
 "@zip.js/zip.js@npm:^2.7.44":
-  version: 2.7.57
-  resolution: "@zip.js/zip.js@npm:2.7.57"
-  checksum: 10c0/fdb25fc5e9a78992ee61dae382a8ea54cdaeefe6d48e583df52218b0316bf8cc0cf91eb02898237cd91d27d417c90f0022b396abf129784306b5dad94da0f49a
+  version: 2.7.60
+  resolution: "@zip.js/zip.js@npm:2.7.60"
+  checksum: 10c0/466ff1729e36d9f500011475e230f2edb9c0e6e10f64d542e6ebc006dc70885bc909d69fd0c7b10126bdf722c761359ad1edfe295b6c7fed3169f0f63012a1cd
   languageName: node
   linkType: hard
 
@@ -4759,7 +4759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assert@npm:^2.0.0":
+"assert@npm:^2.0.0, assert@npm:^2.1.0":
   version: 2.1.0
   resolution: "assert@npm:2.1.0"
   dependencies:
@@ -9796,7 +9796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"memfs@npm:^4.9.3":
+"memfs@npm:^4.17.0":
   version: 4.17.0
   resolution: "memfs@npm:4.17.0"
   dependencies:
@@ -11240,11 +11240,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:^3.3.3":
-  version: 3.5.2
-  resolution: "prettier@npm:3.5.2"
+  version: 3.5.3
+  resolution: "prettier@npm:3.5.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/d7b597ed33f39c32ace675896ad187f06a3e48dc8a1e80051b5c5f0dae3586d53981704b8fda5ac3b080e6c2e0e197d239131b953702674f044351621ca5e1ac
+  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
   languageName: node
   linkType: hard
 
@@ -13025,7 +13025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^3.0.2":
+"svgo@npm:^3.0.2, svgo@npm:^3.3.2":
   version: 3.3.2
   resolution: "svgo@npm:3.3.2"
   dependencies:
@@ -13991,6 +13991,7 @@ __metadata:
     sd-tailwindcss-transformer: "npm:^2.1.0"
     storybook: "npm:^8.5.2"
     style-dictionary: "npm:^4.3.3"
+    svgo: "npm:^3.3.2"
     tailwind-merge: "npm:^2.5.5"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5.6.3"
@@ -14455,11 +14456,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.2.2":
-  version: 2.7.0
-  resolution: "yaml@npm:2.7.0"
+  version: 2.7.1
+  resolution: "yaml@npm:2.7.1"
   bin:
     yaml: bin.mjs
-  checksum: 10c0/886a7d2abbd70704b79f1d2d05fe9fb0aa63aefb86e1cb9991837dced65193d300f5554747a872b4b10ae9a12bc5d5327e4d04205f70336e863e35e89d8f4ea9
+  checksum: 10c0/ee2126398ab7d1fdde566b4013b68e36930b9e6d8e68b6db356875c99614c10d678b6f45597a145ff6d63814961221fc305bf9242af8bf7450177f8a68537590
   languageName: node
   linkType: hard
 
