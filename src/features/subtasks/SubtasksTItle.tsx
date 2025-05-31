@@ -15,7 +15,7 @@ const SubtasksTitle = ({ title, cost, isAllDone }: SubtasksTItleProps) => {
         <span className='gray-800 font-bold'>
           총 {cost.toLocaleString('ko-KR')} 원
         </span>
-        <span className='gray-600'>전체 금액 보기</span>
+        <span className='cursor-pointer text-gray-600'>전체 금액 보기</span>
       </div>
     </div>
   );

@@ -7,6 +7,8 @@ import { Chip } from '@/components/atoms/chip';
 import clsx from 'clsx';
 import TrashIcon from '@/assets/wed_icon/icon_28/trash_Icon.svg';
 
+type TChip = 'blue' | 'pink' | 'primary300' | 'gray';
+
 interface Task {
   id: string;
   isDone: boolean;
@@ -22,6 +24,12 @@ interface SubtaskCardProps {
   onDeleteAction: () => void;
 }
 
+const chipTypes: Record<string, TChip> = {
+  예랑: 'blue',
+  예신: 'pink',
+  함께: 'primary300',
+};
+
 export const SubtaskCard = ({
   task,
   onChange,
@@ -29,12 +37,7 @@ export const SubtaskCard = ({
 }: SubtaskCardProps) => {
   const x = useMotionValue(0);
   const [isOpen, setIsOpen] = useState(false);
-  const chipType =
-    task.manager === '예랑'
-      ? 'blue'
-      : task.manager === '예신'
-        ? 'pink'
-        : 'primary300';
+  const chipType = chipTypes[task.manager] || 'gray';
 
   const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
     if (info.offset.x < -50) {
@@ -74,7 +77,7 @@ export const SubtaskCard = ({
         <Card checked={task.isDone}>
           <Card.Checkbox checked={task.isDone} onChange={onChange} />
           <Card.TaskTitle>{task.title}</Card.TaskTitle>
-          <Card.CostSpan>{task.cost} 원</Card.CostSpan>
+          <Card.CostSpan>{task.cost.toLocaleString('ko-KR')} 원</Card.CostSpan>
           <Chip rounded='sm' size='sm'>
             {task.date}
           </Chip>

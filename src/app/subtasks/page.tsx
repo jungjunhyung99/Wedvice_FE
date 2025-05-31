@@ -48,7 +48,7 @@ const initialData: SubtasksMainProps = {
 
 const SubtasksPage = () => {
   return (
-    <div className='flex w-full flex-col overflow-hidden p-8'>
+    <div className='flex w-full flex-col overflow-hidden p-5'>
       <SubtasksMain tasks={initialData.tasks} />
     </div>
   );
