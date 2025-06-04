@@ -26,18 +26,16 @@ export const AddSubTask = () => {
   const [isValid, setIsValid] = useState<boolean>(false);
 
   const handleFormChange = (key: keyof SubTaskForm, value: string | null) => {
-    setForm((prev) => {
-      const newForm = { ...prev, [key]: value };
-      // 모든 필수 필드가 채워졌는지 확인
-      const isFormValid = Boolean(
-        newForm.title &&
-          newForm.manager &&
-          newForm.description &&
-          newForm.dueDate,
-      );
-      setIsValid(isFormValid);
-      return newForm;
-    });
+    const newForm = { ...form, [key]: value };
+    setForm(newForm);
+
+    const isFormValid = Boolean(
+      newForm.title &&
+        newForm.manager &&
+        newForm.description &&
+        newForm.dueDate,
+    );
+    setIsValid(isFormValid);
   };
 
   const handleSubmit = () => {
@@ -50,7 +48,7 @@ export const AddSubTask = () => {
     <div className='flex h-full w-full flex-col items-center bg-gray-50'>
       <TopBar title='스튜디오 촬영하기' className='w-full' />
 
-      <section className='scrollbar-hide relative mt-4 flex h-full w-full flex-col items-center gap-5 overflow-y-scroll px-5'>
+      <section className='relative mt-4 flex h-full w-full flex-col items-center gap-5 overflow-y-scroll px-5 scrollbar-hide'>
         <TextInput
           value={form.title}
           onChange={(value) => handleFormChange('title', value)}
