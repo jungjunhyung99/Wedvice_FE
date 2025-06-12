@@ -1,46 +1,41 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { cva, type VariantProps } from 'class-variance-authority';
+import { forwardRef, type ButtonHTMLAttributes } from 'react';
 
 const buttonVariants = cva(
-  "inline-flex px-[3px] gap-[6px] items-center justify-center word-break:keep-all disabled:pointer-events-none disabled:opacity-30 transition-colors duration-200 font-medium text-[20px]",
+  'inline-flex gap-2 items-center justify-center word-break:keep-all disabled:pointer-events-none disabled:opacity-30 transition-colors duration-200 font-medium text-[20px]',
   {
     variants: {
       variant: {
-        main: "bg-purple-40 hover:bg-purple-50 text-white",
-        none: "text-white",
+        primary_fill: 'bg-primary-400 text-white',
+        gray_fill: 'bg-gray-200 text-gray-800',
       },
       rounded: {
-        xl: "rounded-xl",
-        lg: "rounded-lg",
-        md: "rounded-md",
-        sm: "rounded-sm",
-        none: "rounded-none",
+        lg: 'rounded-lg',
+        md: 'rounded-md',
       },
       width: {
-        full: "w-full",
-        register: "w-[350px]",
+        full: 'w-full',
+        register: 'w-[350px]',
       },
       height: {
-        xl2: "h-[70px]",
-        xl: "h-[58px]",
-        lg: "h-[48px]",
-        md: "h-[40px]",
-        sm: "h-[35px]",
+        lg: 'h-[63px]',
+        md: 'h-[53px]',
+        sm: 'h-[34px]',
       },
-      weight: {
-        md: "font-medium",
-        semi: "font-semibold",
-        bold: "font-bold",
+      size: {
+        lg: 'px-[32px] py-[20px]',
+        md: 'px-[24px] py-[16px]',
+        sm: 'px-[16px] py-[8px]',
       },
     },
     defaultVariants: {
-      variant: "main",
-      rounded: "lg",
-      width: "full",
-      weight: "md",
-      height: "lg",
+      variant: 'primary_fill',
+      rounded: 'lg',
+      width: 'full',
+      size: 'md',
+      height: 'lg',
     },
-  }
+  },
 );
 
 interface ButtonProps
@@ -48,14 +43,14 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, rounded, width, weight, height, ...props }, ref) => {
+  ({ className, variant, rounded, width, size, height, ...props }, ref) => {
     return (
       <button
         className={buttonVariants({
           variant,
           rounded,
           width,
-          weight,
+          size,
           height,
           className,
         })}
@@ -63,6 +58,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
-Button.displayName = "Button";
+Button.displayName = 'Button';

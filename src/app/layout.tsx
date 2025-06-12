@@ -1,6 +1,8 @@
-import { Metadata } from 'next';
-import './globals.css';
+import { MemoProvider } from '@/contexts/memo/MemoProvider';
 import BaseQueryClientProvider from '@/contexts/tanstackQuery/BaseQueryClientProvider';
+import { Metadata } from 'next';
+import { pretendard } from './font';
+import './globals.css';
 
 // PWA 관련 세팅
 export const metadata: Metadata = {
@@ -15,9 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="layout">
-        <BaseQueryClientProvider>{children}</BaseQueryClientProvider>
+    <html lang='en'>
+      <body className={`layout ${pretendard.variable}`}>
+        <BaseQueryClientProvider>
+          <MemoProvider>
+            <div className='h-[100dvh] w-full bg-gray-100 font-pretendard'>
+              {children}
+            </div>
+          </MemoProvider>
+        </BaseQueryClientProvider>
       </body>
     </html>
   );

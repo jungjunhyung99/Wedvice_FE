@@ -1,3 +1,4 @@
+import LeftArrow from '@/assets/wed_icon/icon_16/leftarrow_default.svg';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
@@ -11,7 +12,7 @@ const meta: Meta<typeof Button> = {
     },
     rounded: {
       control: 'inline-radio',
-      options: ['none', 'sm', 'md', 'lg', 'xl'],
+      options: ['md', 'lg'],
     },
     width: {
       control: 'inline-radio',
@@ -20,6 +21,10 @@ const meta: Meta<typeof Button> = {
     height: {
       control: 'inline-radio',
       options: ['xl2', 'xl', 'lg', 'md', 'sm'],
+    },
+    size: {
+      control: 'inline-radio',
+      options: ['lg', 'md', 'sm'],
     },
     disabled: {
       control: 'boolean',
@@ -32,26 +37,33 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Basic: Story = {
+export const PrimaryFillWithArrow: Story = {
   args: {
-    children: 'Button',
-  },
-};
-
-export const Main: Story = {
-  args: {
-    ...Basic.args,
-    variant: 'main',
-  },
-};
-
-export const shortButton: Story = {
-  args: {
-    children: 'Button',
+    variant: 'primary_fill',
+    children: (
+      <>
+        <LeftArrow fill={'white'} />
+        text
+      </>
+    ),
   },
   decorators: [
     (Story) => (
-      <div className="w-[100px]">
+      <div className='w-[100px]'>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const GrayFill: Story = {
+  args: {
+    variant: 'gray_fill',
+    children: 'text',
+  },
+  decorators: [
+    (Story) => (
+      <div className='w-[100px]'>
         <Story />
       </div>
     ),

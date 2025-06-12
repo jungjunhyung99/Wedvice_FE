@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --layout-max-w: 480px;
+}
+
 @layer base {
   .layout {
-    @apply max-w-[480px] min-h-[100dvh] w-full mx-auto;
+    @apply mx-auto min-h-[100dvh] w-full;
+    max-width: var(--layout-max-w);
   }
 }
