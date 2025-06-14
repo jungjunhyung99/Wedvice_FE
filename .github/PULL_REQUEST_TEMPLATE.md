@@ -1,3 +1,0 @@
-## Motivation 🤔
-## Key Changes 🔑
-## Attachment 📷
